@@ -10,6 +10,8 @@ namespace ProductReviewManagement
             Console.WriteLine(" Product Review Management");
             Console.WriteLine("1.Adding a Prodcut Review In list");
             Console.WriteLine("2.retrive top three records");
+            Console.WriteLine("3.retrive records whoes rating is greater than 7");
+            Console.WriteLine("4.retrieving count grouping by Rating");
             List<ProductReview> products = new List<ProductReview>();
             int option = Convert.ToInt32(Console.ReadLine());
             ProductReviewManager.AddProductReview(products);
@@ -23,6 +25,9 @@ namespace ProductReviewManagement
                     break;
                 case 3:
                     ProductReviewManager.Retrieve(products);
+                    break;
+                case 4:
+                    ProductReviewManager.RetrieveCount(products);
                     break;
 
 

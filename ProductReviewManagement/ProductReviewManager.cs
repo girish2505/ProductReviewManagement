@@ -58,5 +58,17 @@ namespace ProductReviewManagement
             var result = (from product in products where product.Rating > 7 && (product.ProductId == 1 || product.ProductId == 11 || product.ProductId == 13) select product).ToList();
             IterateMethod(result);
         }
+        public static void RetrieveCount(List<ProductReview> products)
+        {
+            int n = 0;
+            
+            var res = products.GroupBy(p => p.Rating).Select(x => new { ID = x.Key, count = x.Count() });
+            foreach (var i in res)
+            {
+                Console.WriteLine("ProductId : " + i.ID + "\tcount : " + i.count);
+                n++;
+            }
+            Console.WriteLine(n);
+        }
     }
 }
