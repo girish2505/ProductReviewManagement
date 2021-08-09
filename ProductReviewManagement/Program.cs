@@ -13,6 +13,7 @@ namespace ProductReviewManagement
             Console.WriteLine("3.retrive records whoes rating is greater than 7");
             Console.WriteLine("4.retrieving count grouping by Rating");
             Console.WriteLine("5.retrive id and review");
+            Console.WriteLine("6.Skip top 5 records");
             List<ProductReview> products = new List<ProductReview>();
             int option = Convert.ToInt32(Console.ReadLine());
             ProductReviewManager.AddProductReview(products);
@@ -33,8 +34,9 @@ namespace ProductReviewManagement
                 case 5:
                     ProductReviewManager.RetrieveIdAndReview(products);
                     break;
-
-
+                case 6:
+                    ProductReviewManager.SkipRecords(products);
+                    break;
             }
         }
     }
