@@ -38,7 +38,7 @@ namespace ProductReviewManagement
                 {
                     Console.WriteLine(i);
                 }
-                Console.WriteLine("*********");
+                Console.WriteLine(" ");
             }
         }
         public static int RetrieveBasedOnIsLike(List<ProductReview> products)
@@ -52,6 +52,13 @@ namespace ProductReviewManagement
                 count++;
             }
             return count;
+        }
+        public static void AvgRating(List<ProductReview> products)
+        {
+            DataTable table = AddDetails(products);
+            double avg = (double)table.AsEnumerable().Average(x => x.Field<int>("Rating"));
+            Console.WriteLine("The average of ratings of all products is");
+            Console.WriteLine(avg);
         }
     }
 }
