@@ -60,5 +60,15 @@ namespace ProductReviewManagement
             Console.WriteLine("The average of ratings of all products is");
             Console.WriteLine(avg);
         }
+        public static void Review(List<ProductReview> products)
+        {
+            DataTable table = AddDetails(products);
+            Console.WriteLine("Products with Average Review are ");
+            var res = from product in table.AsEnumerable() where product.Field<string>("Review") == "Average" select product;
+            foreach (var i in res)
+            {
+                Console.WriteLine($"{i["ProductId"]},{i["Review"]}");
+            }
+        }
     }
 }
